@@ -1,0 +1,5 @@
+apache-airflow==2.8.1
+sqlalchemy==1.4.51
+minio==7.2.9
+pandas==2.0.3
+spotipy==2.24.0
