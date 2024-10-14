@@ -23,6 +23,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ${AIRFLOW_PROJ_DIR:-.}/extraction:/opt/airflow/extraction
     - ${AIRFLOW_PROJ_DIR:-.}/requirements.txt:/opt/airflow/requirements.txt
+    - ${AIRFLOW_PROJ_DIR:-.}/dbt:/opt/airflow/dbt
 
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:

@@ -3,3 +3,4 @@ sqlalchemy==1.4.51
 minio==7.2.9
 pandas==2.0.3
 spotipy==2.24.0
+dbt-postgres==1.8.2

@@ -1,0 +1,12 @@
+spotify_project:
+  outputs:
+    dev:
+      dbname: spotify_dw
+      host: postgres_dw
+      pass: warehouse
+      port: 5432
+      schema: public
+      threads: 1
+      type: postgres
+      user: warehouse
+  target: dev
