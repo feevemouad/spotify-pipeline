@@ -181,3 +181,4 @@ extraction/config.conf
 logs
 plugins
 config
+dags/test_dag.py

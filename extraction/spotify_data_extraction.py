@@ -1,19 +1,19 @@
 import pathlib
 
 try:
-    import spotipy
+    import spotipy # type: ignore
 except ImportError:
     import subprocess
 
     subprocess.check_call(["pip", "install", "spotipy"])
-    import spotipy
+    import spotipy # type: ignore
 
 import sys
 import os
 from datetime import datetime
 
 # import spotipy
-import pandas as pd
+import pandas as pd # type: ignore
 import configparser
 
 # Read Configuration File
@@ -35,7 +35,7 @@ SPOTIPY_CLIENT_SECRET = config.get('spotify config', 'secret')
 PLAYLIST_ID = config.get('spotify config', 'playlist_id')
 
 # Authentication
-from spotipy.oauth2 import SpotifyClientCredentials
+from spotipy.oauth2 import SpotifyClientCredentials # type: ignore
 import validation as va
 
 
@@ -51,6 +51,7 @@ def main():
             spotifyInstance = api_connect(SPOTIPY_CLIENT_ID, SPOTIPY_CLIENT_SECRET)
             extracted_data = get_playlist_tracks(spotifyInstance, PLAYLIST_ID)
             trackFeatures = getFeatures(spotifyInstance, extracted_data)
+            trackFeatures['extraction_date'] = output_name
             import_to_csv(trackFeatures, output_name)
 
     except Exception as e:

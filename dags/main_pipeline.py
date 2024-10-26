@@ -18,7 +18,7 @@ default_args = {
     "owner": "airflow",
     "depends_on_past": False,
     "retries": 1,
-    "retry_delay": timedelta(minutes=5),
+    "retry_delay": timedelta(minutes=3),
 }
 
 with DAG(
@@ -50,7 +50,7 @@ with DAG(
 
     # Task 3: Copy MinIO CSV to PostgresDB
     minio_to_postgresdb = BashOperator(
-        task_id="minio_to_duckdb",
+        task_id="minio_to_postgres",
         bash_command=f"python /opt/airflow/extraction/minio_to_postgres.py {output_name}",
         dag=dag,
     )

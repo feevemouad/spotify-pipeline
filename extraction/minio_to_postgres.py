@@ -5,8 +5,8 @@ from datetime import datetime
 import pandas as pd
 from minio import Minio
 import io
-import psycopg2
-from sqlalchemy import create_engine
+import psycopg2 # type: ignore
+from sqlalchemy import create_engine # type: ignore
 import validation as va
 
 # Read Configuration File
@@ -58,6 +58,8 @@ def copy_to_postgres(file_name):
         # Read CSV data into pandas DataFrame
         df = pd.read_csv(io.BytesIO(data.read()))
         
+        df["extraction_date"] = datetime.strptime(file_name, '%Y%m%d').date()
+
         # Create SQLAlchemy engine
         engine = create_engine(f'postgresql://{pg_user}:{pg_password}@{pg_host}:{pg_port}/{pg_database}')
         
@@ -85,7 +87,8 @@ def copy_to_postgres(file_name):
                     analysis_url VARCHAR,
                     duration_ms INTEGER,
                     time_signature INTEGER,
-                    genres VARCHAR
+                    genres VARCHAR,
+                    extraction_date DATE
                 )
             """)
         
