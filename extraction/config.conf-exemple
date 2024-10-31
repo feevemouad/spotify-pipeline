@@ -4,15 +4,15 @@ secret = [secret]
 playlist_id = [playlist_id]
 
 [minio config]
-endpoint_url = [endpoint_url]
-access_key = [access_key]
-secret_key = [secret_key]
-bucket_name = [bucket_name]
-secure = [secure]
+endpoint_url = minio:9000
+access_key = minioadmin
+secret_key = minioadmin
+bucket_name = spotify-data
+secure = False
 
 [postgres_dw config]
-host = [host]
-port = [port]
-database = [database]
-user = [user]
-password = [password]
+host = postgres_dw
+port = 5432
+database = spotify_dw
+user = warehouse
+password = warehouse
