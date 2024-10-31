@@ -238,6 +238,25 @@ services:
     networks:
       - airflow_net    
 
+  metabase:
+    image: metabase/metabase:latest
+    restart: always
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: spotify_dw
+      MB_DB_PORT: 5432
+      MB_DB_USER: warehouse
+      MB_DB_PASS: warehouse
+      MB_DB_HOST: postgres_dw
+    ports:
+      - "3008:3000"
+    depends_on:
+      - postgres_dw
+    volumes:
+      - ./metabase_data:/metabase-data
+    networks:
+      - airflow_net
+
 volumes:
   postgres-db-volume:
   postgres-dw-volume:
