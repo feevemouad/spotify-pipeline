@@ -52,6 +52,7 @@ This project is a data pipeline designed to extract, process, and analyze data f
 
 Here’s an example of a dashboard created for this project:
 
-![Capture d'écran 2024-10-31 175943](https://github.com/user-attachments/assets/da2b9728-ee15-47f1-b8f6-d95e9ae8411b)
+![Capture d'écran 2024-11-05 015904](https://github.com/user-attachments/assets/eb16229c-30ce-4000-9f63-b32f941b40a3)
+![Capture d'écran 2024-11-05 015930](https://github.com/user-attachments/assets/4d2627e9-4c48-420c-99f5-2449757ece0d)
 
 You can adapt this pipeline to track any playlist or genre, transforming the extracted data into meaningful insights for music analysis.
