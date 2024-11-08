@@ -18,7 +18,7 @@ track_position_change as (SELECT
     extraction_date,
     position,
     LAG(position) OVER (PARTITION BY track ORDER BY extraction_date) AS previous_position,
-    COALESCE(position - LAG(position) OVER (PARTITION BY track ORDER BY extraction_date), 0) AS position_change
+    - COALESCE(position - LAG(position) OVER (PARTITION BY track ORDER BY extraction_date), 0) AS position_change
 FROM recent_tracks
 ORDER BY extraction_date, position)
 
